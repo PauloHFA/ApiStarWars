@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/filmes")
 public class FilmController {
 
+    private final CharacterClient characterClient;
+
     private final FilmClient filmClient;
 
-    public FilmController(FilmClient filmClient) {
+    public FilmController(CharacterClient characterClient, FilmClient filmClient) {
+        this.characterClient = characterClient;
         this.filmClient = filmClient;
     }
 
@@ -21,13 +24,13 @@ public class FilmController {
         return filmClient.findAll();
     }
 
-    @GetMapping("/title/{title}")
-    public StarWarsApiFilmes findMovieByTitle(@PathVariable String title) {
-        return filmClient.findByMovieTitle(title);
-    }
+//    @GetMapping("/title/{title}")
+//    public StarWarsApiFilmes findMovieByTitle(@PathVariable String title) {
+//        return filmClient.findByMovieTitle(title);
+//    }
 
     @GetMapping("/characters")
     public StarWarsApiCharacters findAllCharacters() {
-        return charac.findAllCharacters();  // ✅ Correto!
+        return characterClient.findAllCharacters();
     }
 }

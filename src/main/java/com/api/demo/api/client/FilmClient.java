@@ -18,5 +18,4 @@ public interface FilmClient {
     @GetMapping
     StarWarsApiFilmes findByMovieTitle(@RequestParam(name = "search") String movieTitle);
 
-
 }
