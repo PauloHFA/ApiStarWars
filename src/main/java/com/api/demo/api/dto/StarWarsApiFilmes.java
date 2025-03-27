@@ -11,5 +11,4 @@ import java.util.List;
 @AllArgsConstructor
 public class StarWarsApiFilmes {
     private List<FilmResponse> results;
-
 }

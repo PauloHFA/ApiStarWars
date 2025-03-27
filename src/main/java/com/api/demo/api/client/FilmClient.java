@@ -1,6 +1,5 @@
 package com.api.demo.api.client;
 
-import com.api.demo.api.dto.StarWarsApiCharacters;
 import com.api.demo.api.dto.StarWarsApiFilmes;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,14 +7,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(
         name = "filmClient",
-        url = "${swapi.base-url}films"
+        url = "${swap.base-url}"
 )
 public interface FilmClient {
 
-    @GetMapping
+    @GetMapping("films")
     StarWarsApiFilmes findAll();
 
-    @GetMapping
+    @GetMapping("films")
     StarWarsApiFilmes findByMovieTitle(@RequestParam(name = "search") String movieTitle);
 
 }

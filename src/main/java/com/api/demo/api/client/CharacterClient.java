@@ -4,10 +4,10 @@ import com.api.demo.api.dto.StarWarsApiCharacters;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient(name = "characterClient", url = "${swapi.base-url}people")
+@FeignClient(name = "characterClient", url = "${swap.base-url}")
 public interface CharacterClient {
 
-    @GetMapping
+    @GetMapping("people")
     StarWarsApiCharacters findAllCharacters();
 
 }
